@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="App">
       <NavBar></NavBar>
-      <h1>React Router</h1>
+      <h1></h1>
       <Outlet />
-      <p>Footer</p>
+      <p></p>
     </div>
   );
 }

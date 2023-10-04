@@ -24,6 +24,7 @@ img {
 
 body {
   color: var(--text-color);
+  background-color: azure;
 }
 
 .container {
@@ -43,6 +44,11 @@ header {
   background: var(--bg-color);
   box-shadow: 0 1px 4px hsl(0 4% 15% / 10%);
   z-index: 100;
+  background-color: rgb(199, 238, 245);
+}
+
+div.App {
+  background-color: azure;
 }
 
 .nav {
@@ -50,6 +56,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
+  background-color: rgb(199, 238, 245);
 }
 
 .logo {
@@ -78,6 +85,7 @@ header {
 
 .cart.active {
   right: 0;
+  background-color: rgb(160, 170, 253);
 }
 
 .cart-title {

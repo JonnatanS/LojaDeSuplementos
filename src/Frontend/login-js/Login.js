@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import Gym from "../arquivo svg/Gym-amico.svg";
 import "../css-login/Login.css";
@@ -23,7 +24,9 @@ function Login() {
             <label htmlFor="senha">Senha</label>
             <input type="password" name="senha" placeholder="Senha" />
           </div>
-          <button className="btn-login">Login</button>
+          <button className="btn-login">
+            <Link to="/">Login</Link>
+          </button>
         </div>
       </div>
     </div>
