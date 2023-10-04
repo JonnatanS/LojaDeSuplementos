@@ -86,6 +86,13 @@ div.App {
 .cart.active {
   right: 0;
   background-color: rgb(160, 170, 253);
+  position: fixed; /* Fixa o carrinho na tela */
+  top: 0; /* Define a distância do topo */
+  max-height: 80vh; /* Define a altura máxima em relação à altura da viewport */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical se o carrinho ultrapassar a altura máxima */
+  border: 1px solid #ccc; /* Borda do carrinho (opcional) */
+  padding: 10px; /* Espaçamento interno do carrinho (opcional) */
+  z-index: 1000; /* Z-index para garantir que o carrinho fique acima de outros elementos */
 }
 
 .cart-title {
