@@ -1,7 +1,8 @@
+import React from "react";
 import Gym from "../arquivo svg/Gym-amico.svg";
-import "../css-login/App.css";
+import "../css-login/Login.css";
 
-function App() {
+function Login() {
   return (
     <div className="main-login">
       <div className="left-login">
@@ -29,4 +30,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;
