@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-
-import "../Frontend/css-home/style.css";
-import Alb from "../Frontend/css-home/albumina1.png";
-import Barra from "../Frontend/css-home/barraproteina1.png";
-import BCAA from "../Frontend/css-home/bcaa1.png";
-import Cafeina from "../Frontend/css-home/cafeina1.png";
-import Glutamina from "../Frontend/css-home/glutamina1.png";
-import Omega from "../Frontend/css-home/omega3.png";
-import Vita from "../Frontend/css-home/vitamina-a-az.png";
-import Whey from "../Frontend/css-home/whey1.png";
-import Creatina from "../Frontend/css-home/creatina1.png";
-import Login from "../Frontend/login-js/Login.js";
+import {
+  React,
+  useEffect,
+  Link,
+  Alb,
+  Barra,
+  BCAA,
+  Cafeina,
+  Glutamina,
+  Omega,
+  Vita,
+  Whey,
+  Creatina,
+  Login,
+} from "./imports.js";
 
 const App = () => {
   useEffect(() => {
@@ -30,7 +31,6 @@ const App = () => {
       cart.classList.remove("active");
     };
 
-    // Restante da lógica do main.js aqui...
     // Cart Working Js
 
     if (document.readyState === "loading") {
@@ -70,9 +70,13 @@ const App = () => {
     // Buy Button
     function buyButtonClicked() {
       var cartContent = document.getElementsByClassName("cart-content")[0];
+      var numberOfItems = cartContent.childElementCount; // Obtém o número de itens no carrinho
       while (cartContent.hasChildNodes()) {
         cartContent.removeChild(cartContent.firstChild);
+      }
+      if (numberOfItems > 0) {
         alert("Seu pedido foi feito");
+      } else {
       }
       updateTotal();
     }

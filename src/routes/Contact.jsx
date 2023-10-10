@@ -11,6 +11,9 @@ const Contact = () => {
       <p>
         <Link to="/loginpage">Pagina de Login</Link>
       </p>
+      <p>
+        <Link to="/cadastro">Pagina de Cadastro</Link>
+      </p>
     </div>
   );
 };

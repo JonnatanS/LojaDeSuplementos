@@ -18,6 +18,7 @@ import ErrorPage from "./routes/ErrorPage";
 import ContactDetails from "./routes/ContactDetails";
 import LoginPage from "./Frontend/login-js/Login";
 import HomePage from "./pag-principal/App";
+import Cadastro from "./Frontend/cadastro-js/cadastro";
 
 // const router = createBrowserRouter([
 //   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "/loginpage",
         element: <LoginPage />,
+      },
+      {
+        path: "/cadastro",
+        element: <Cadastro />,
       },
     ],
   },

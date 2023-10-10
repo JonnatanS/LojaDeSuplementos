@@ -26,6 +26,9 @@ function Login() {
           </div>
           <button className="btn-login">
             <Link to="/">Login</Link>
+            <div className="btn-cadastre">
+              Não tem uma conta? <Link to="/cadastro">Cadastre-se</Link>
+            </div>
           </button>
         </div>
       </div>
