@@ -34,7 +34,7 @@ body * {
 }
 
 .right-login {
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -137,6 +137,7 @@ body * {
 
 .card-login {
   width: 90%;
+  padding: 10px;
 }
 
 .btn-cadastre {

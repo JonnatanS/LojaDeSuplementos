@@ -12,7 +12,6 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Home from "./routes/Home";
 import Contact from "./routes/Contact";
 import ErrorPage from "./routes/ErrorPage";
 import ContactDetails from "./routes/ContactDetails";

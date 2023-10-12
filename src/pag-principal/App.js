@@ -11,7 +11,6 @@ import {
   Vita,
   Whey,
   Creatina,
-  Login,
 } from "./imports.js";
 
 const App = () => {
@@ -189,7 +188,7 @@ const App = () => {
         <header>
           {/* Nav */}
           <div className="nav container">
-            <a href="#" className="logo">
+            <a href="#/" className="logo">
               Suplementos
             </a>
 

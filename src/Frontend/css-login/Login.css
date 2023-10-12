@@ -90,6 +90,12 @@ body * {
   color: #f0ffff94;
 }
 
+.btn-cadastre {
+  font-size: 14px;
+  color: #f0ffffde;
+  margin-top: 10px;
+}
+
 .btn-login {
   width: 100%;
   padding: 16px 0px;
@@ -137,10 +143,4 @@ body * {
 
 .card-login {
   width: 90%;
-}
-
-.btn-cadastre {
-  font-size: 14px;
-  color: #f0ffffde;
-  margin-top: 10px;
 }

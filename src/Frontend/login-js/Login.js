@@ -8,7 +8,8 @@ function Login() {
     <div className="main-login">
       <div className="left-login">
         <h1>
-          Faça login <br />E entre para a nossa equipe
+          Entre Agora
+          <br />
         </h1>
         <img src={Gym} className="left-login-image" alt="Gym" />
         <br />
@@ -18,14 +19,14 @@ function Login() {
           <h1>LOGIN</h1>
           <div className="textfield">
             <label htmlFor="usuario">Usuário</label>
-            <input type="text" name="usuario" placeholder="Usuário" />
+            <input type="text" name="usuario" placeholder="Usuário" required />
           </div>
           <div className="textfield">
             <label htmlFor="senha">Senha</label>
-            <input type="password" name="senha" placeholder="Senha" />
+            <input type="password" name="senha" placeholder="Senha" required />
           </div>
           <button className="btn-login">
-            <Link to="/">Login</Link>
+            <Link to="/">Entrar</Link>
             <div className="btn-cadastre">
               Não tem uma conta? <Link to="/cadastro">Cadastre-se</Link>
             </div>
