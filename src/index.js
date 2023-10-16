@@ -1,84 +1,38 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./react-router/App";
-import reportWebVitals from "./reportWebVitals";
-
-// Configurando router
-
+import { createRoot } from "react-dom/client";
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter as Router,
+  Route,
+  Routes,
   Navigate,
 } from "react-router-dom";
-
+import App from "./react-router/App";
 import Contact from "./routes/Contact";
 import ErrorPage from "./routes/ErrorPage";
 import ContactDetails from "./routes/ContactDetails";
 import LoginPage from "./Frontend/login-js/Login";
 import HomePage from "./pag-principal/App";
 import Cadastro from "./Frontend/cadastro-js/cadastro";
+import Logado from "./pag-logado/index";
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Home />,
-//   },
-//   {
-//     path: "contact",
-//     element: <Contact />,
-//   },
-// ]);
+const root = createRoot(document.getElementById("root"));
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    //Pagina de Erro
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage />,
-      },
-      {
-        path: "contact",
-        element: <Contact />,
-      },
-      // nested routes - indentificador unico - dynamic routes
-      {
-        path: "/contact/:id",
-        element: <ContactDetails />,
-      },
-      // navigate para paginas nao existentes
-      {
-        path: "oldcontact",
-        element: <Navigate to="/contact" />,
-      },
-      {
-        path: "/homepage",
-        element: <HomePage />,
-      },
-      {
-        path: "/loginpage",
-        element: <LoginPage />,
-      },
-      {
-        path: "/cadastro",
-        element: <Cadastro />,
-      },
-    ],
-  },
-]);
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route index element={<HomePage />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="contact/:id" element={<ContactDetails />} />
+          <Route path="oldcontact" element={<Navigate to="/contact" />} />
+          <Route path="homepage" element={<HomePage />} />
+          <Route path="loginpage" element={<LoginPage />} />
+          <Route path="cadastro" element={<Cadastro />} />
+          <Route path="homepagelog" element={<Logado />} />
+        </Route>
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

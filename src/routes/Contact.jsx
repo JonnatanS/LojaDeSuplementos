@@ -1,22 +1,23 @@
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LoginPage from "../Frontend/login-js/Login";
+import Cadastro from "../Frontend/cadastro-js/cadastro";
+import Pagina404 from "../routes/ErrorPage";
+import PaginaPrincipal from "../pag-principal/App";
+import { Logado } from "../pag-logado/imports";
 
-const Contact = () => {
+function Contact() {
   return (
-    <div>
-      <p>
-        <Link to="/homepage">Pagina Principal</Link>
-      </p>
-      <p>
-        <Link to="/loginpage">Pagina de Login</Link>
-      </p>
-      <p>
-        <Link to="/cadastro">Pagina de Cadastro</Link>
-      </p>
-      <p>
-        <Link to="/server">Pagina de Erro 404</Link>
-      </p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/loginpage" component={LoginPage} />
+        <Route path="/cadastro" component={Cadastro} />
+        {/* Adicione outras rotas conforme necessário */}
+        <Route path="/server" component={Pagina404} />
+        <Route path="/homepage" component={PaginaPrincipal} />
+        <Route path="/homepageLog" component={Logado} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default Contact;

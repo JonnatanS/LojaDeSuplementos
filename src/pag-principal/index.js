@@ -1,6 +1,4 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
 import {
   React,
   useEffect,
@@ -13,9 +11,9 @@ import {
   Omega,
   Whey,
   Creatina,
-} from "./imports.js";
+} from "../pag-logado/imports";
 
-const App = () => {
+const Logado = () => {
   const [showDescription, setShowDescription] = useState(false);
 
   const productDescriptions = {
@@ -35,15 +33,9 @@ const App = () => {
   };
 
   const handleImageClick = (productname) => {
-    if (showDescription === productname) {
-      // Se a descrição já estiver aberta para o produto, feche-a
-      setShowDescription(null);
-    } else {
-      // Caso contrário, mostre a descrição do produto clicado
-      setShowDescription(productname);
-    }
+    setShowDescription(productname);
   };
-  const navigate = useNavigate();
+
   useEffect(() => {
     // Cart
     let cartIcon = document.querySelector("#cart-icon");
@@ -98,14 +90,16 @@ const App = () => {
 
     // Buy Button
     function buyButtonClicked() {
-      var cartContent = document.querySelector(".cart-content");
-
-      if (cartContent && cartContent.childElementCount > 0) {
-        alert("FAÇA LOGIN PRIMEIRO");
-        navigate("/loginpage");
-      } else {
-        updateTotal();
+      var cartContent = document.getElementsByClassName("cart-content")[0];
+      var numberOfItems = cartContent.childElementCount; // Obtém o número de itens no carrinho
+      while (cartContent.hasChildNodes()) {
+        cartContent.removeChild(cartContent.firstChild);
       }
+      if (numberOfItems > 0) {
+        alert("Seu pedido foi feito");
+      } else {
+      }
+      updateTotal();
     }
 
     // Remove items from cart
@@ -196,13 +190,13 @@ const App = () => {
       document.getElementsByClassName("total-price")[0].innerText =
         "R$" + formattedTotal;
     }
-  }, [navigate]); // O segundo argumento vazio [] garante que isso seja executado apenas quando o componente é montado.
+  }, []); // O segundo argumento vazio [] garante que isso seja executado apenas quando o componente é montado.
 
   return (
     // Seu código JSX aqui...
     <html lang="en">
       <head>
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Python Suplementos</title>
         <link rel="stylesheet" href="./css-home/style.css" />
@@ -222,8 +216,8 @@ const App = () => {
 
             {/* Nav */}
             <div className="log container">
-              <Link to="./loginpage" className="logo">
-                Login
+              <Link to="/" className="logo">
+                Sair
               </Link>
               <i className="bx bx-log-in"></i>
             </div>
@@ -409,4 +403,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Logado;

@@ -144,3 +144,7 @@ body * {
 .card-login {
   width: 90%;
 }
+
+.error {
+  color: rgb(221, 3, 3);
+}

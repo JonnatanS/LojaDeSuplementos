@@ -1,6 +1,6 @@
 // imports.js
-import { React, useEffect } from "react"; // Certifique-se de importar useState do React
-import { Link } from "react-router-dom"; // Importe navigate do React Router
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import "../Frontend/css-home/style.css";
 import Alb from "../Frontend/css-home/albumina1.png";
@@ -12,7 +12,8 @@ import Omega from "../Frontend/css-home/omega3.png";
 import Vita from "../Frontend/css-home/vitamina-a-az.png";
 import Whey from "../Frontend/css-home/whey1.png";
 import Creatina from "../Frontend/css-home/creatina1.png";
-import Login from "../Frontend/login-js/Login.js";
+
+import Logado from "../pag-logado/index";
 
 export {
   React,
@@ -27,5 +28,5 @@ export {
   Vita,
   Whey,
   Creatina,
-  Login,
+  Logado,
 };
