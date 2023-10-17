@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as yup from "yup";
+import Axios from "axios";
 import {
   React,
   useEffect,
@@ -14,6 +17,43 @@ import {
 } from "../pag-logado/imports";
 
 const Logado = () => {
+  //Banco de Dados
+
+  const [cartProducts, setCartProducts] = useState([]);
+
+  const validationSchema = yup.object().shape({
+    nome: yup.string().required(),
+    categoria: yup.string().required(),
+    quantidade: yup.string().required(),
+    preco: yup.string().required(),
+  });
+
+  const product = {
+    nome: "",
+    categoria: "",
+    quantidade: 0,
+    preco: 0,
+  };
+
+  const handleFormSubmit = (values) => {
+    Axios.post("http://localhost:3001/addProduct", values)
+      .then((response) => {
+        if (response.data.userExists) {
+          // Usuário já existe, exiba uma mensagem de aviso
+        } else {
+          alert("Cadastro Concluído!");
+          // Usuário não existe, continue com o cadastro
+
+          console.log(response.data.msg);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  //--------------------------------------
+
   const [showDescription, setShowDescription] = useState(false);
 
   const productDescriptions = {
@@ -199,68 +239,49 @@ const Logado = () => {
   }, []); // O segundo argumento vazio [] garante que isso seja executado apenas quando o componente é montado.
 
   return (
-    // Seu código JSX aqui...
-    <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Python Suplementos</title>
-        <link rel="stylesheet" href="./css-home/style.css" />
-        <link
-          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-          rel="stylesheet"
-        />
-        {/* Box icons */}
-      </head>
-      <body>
+    <div>
+      <div style={{ margin: 0, fontFamily: "Noto Sans, sans-serif" }}>
         <header>
-          {/* Nav */}
+          <meta charSet="UTF-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <title>Python Suplementos</title>
+          <link rel="stylesheet" href="./css-home/style.css" />
+          <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+          />
           <div className="nav container">
             <a href="#/" className="logo">
               Python Suplementos
             </a>
-
-            {/* Nav */}
             <div className="log container">
-              <Link to="/" className="logo">
+              <a href="/" className="logo">
                 Sair
-              </Link>
+              </a>
               <i className="bx bx-log-in"></i>
             </div>
-
-            {/* Cart Icons */}
             <i className="bx bx-shopping-bag" id="cart-icon"></i>
-
-            {/* Cart */}
             <div className="cart">
               <h2 className="cart-title">Seu Carrinho</h2>
-
-              {/* Content */}
               <div className="cart-content"></div>
-
-              {/* Total */}
               <div className="total">
                 <div className="total-title">Total</div>
                 <div className="total-price">R$0.00</div>
               </div>
-
-              {/* Buy Button */}
               <button type="button" className="btn-buy">
                 Compre Agora
               </button>
-
-              {/* Cart Close */}
               <i className="bx bx-x" id="close-cart"></i>
             </div>
           </div>
         </header>
 
-        {/* Shop */}
         <section className="shop container">
           <h2 className="section-title">Produtos</h2>
-          {/* Content */}
           <div className="shop-content">
-            {/* Box 1 */}
             <div className="product-box">
               <img
                 src={Whey}
@@ -277,14 +298,6 @@ const Logado = () => {
                 </p>
               )}
             </div>
-            {/* Box 2 */}
-            {/* <div className="product-box">
-              <img src={Vita} alt="" className="product-img" />
-              <h2 className="product-title">Suplemento Vitamina A a-z</h2>
-              <span className="price">R$ 15,00</span>
-              <i className="bx bx-shopping-bag add-cart"></i>
-            </div> */}
-            {/* Box 3 */}
             <div className="product-box">
               <img
                 src={Omega}
@@ -404,8 +417,8 @@ const Logado = () => {
             </div>
           </div>
         </section>
-      </body>
-    </html>
+      </div>
+    </div>
   );
 };
 
