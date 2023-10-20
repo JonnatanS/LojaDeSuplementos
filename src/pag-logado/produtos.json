@@ -1,0 +1,76 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Whey Protein",
+      "categoria": "Proteína",
+      "quantidade": 1,
+      "preco": 98.99,
+      "imagem": "../Frontend/galeria/whey1.png",
+      "descricao": "O Whey Protein é um suplemento de proteína de alta qualidade..."
+    },
+    {
+      "id": 2,
+      "nome": "Albumina",
+      "categoria": "Proteína",
+      "quantidade": 1,
+      "preco": 65.0,
+      "imagem": "../Frontend/galeria/albumina1.png",
+      "descricao": "Albumina é um suplemento riquíssimo em proteínas, geralmente derivado da clara do ovo..."
+    },
+    {
+      "id": 3,
+      "nome": "Omega 3",
+      "categoria": "Linha Clinical",
+      "quantidade": 1,
+      "preco": 60.0,
+      "imagem": "../Frontend/galeria/omega3.png",
+      "descricao": "O Omega-3 é um tipo de ácido graxo essencial que oferece vários benefícios..."
+    },
+    {
+      "id": 4,
+      "nome": "BCAA",
+      "categoria": "Aminoácidos",
+      "quantidade": 1,
+      "preco": 40.0,
+      "imagem": "../Frontend/galeria/bcaa1.png",
+      "descricao": "BCAA, ou Aminoácidos de Cadeia Ramificada, é um suplemento popular entre atletas..."
+    },
+    {
+      "id": 5,
+      "nome": "Cafeína",
+      "categoria": "Termogênicos",
+      "quantidade": 1,
+      "preco": 80.0,
+      "imagem": "../Frontend/galeria/cafeina1.png",
+      "descricao": "A cafeína é um estimulante natural encontrado em café, chá e outras bebidas..."
+    },
+    {
+      "id": 6,
+      "nome": "Glutamina",
+      "categoria": "Aminoácidos",
+      "quantidade": 1,
+      "preco": 60.0,
+      "imagem": "../Frontend/galeria/glutamina1.png",
+      "descricao": "A glutamina é um aminoácido essencial que promove a recuperação muscular..."
+    },
+    {
+      "id": 7,
+      "nome": "Creatina",
+      "categoria": "Suplemento",
+      "quantidade": 1,
+      "preco": 79.9,
+      "imagem": "../Frontend/galeria/creatina1.png",
+      "descricao": "A creatina é um composto natural que fornece energia rápida para os músculos..."
+    },
+    {
+      "id": 8,
+      "nome": "Barra com Whey Protein",
+      "categoria": "Proteína",
+      "quantidade": 1,
+      "preco": 98.99,
+      "imagem": "../Frontend/galeria/barraproteina1.png",
+      "descricao": "A Barra com Whey Protein é um produto que combina a conveniência de uma barra de proteína..."
+    }
+  ]
+}

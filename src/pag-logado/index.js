@@ -1,86 +1,33 @@
 import { useState } from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as yup from "yup";
-import Axios from "axios";
-import {
-  React,
-  useEffect,
-  Link,
-  Alb,
-  Barra,
-  BCAA,
-  Cafeina,
-  Glutamina,
-  Omega,
-  Whey,
-  Creatina,
-} from "../pag-logado/imports";
+
+import produtosJSON from "./produtos.json";
+
+import { React, useEffect } from "../pag-logado/imports";
 
 const Logado = () => {
   //Banco de Dados
 
-  const [cartProducts, setCartProducts] = useState([]);
+  const [showDescription, setShowDescription] = useState(null);
 
-  const validationSchema = yup.object().shape({
-    nome: yup.string().required(),
-    categoria: yup.string().required(),
-    quantidade: yup.string().required(),
-    preco: yup.string().required(),
+  const productDescriptions = {};
+
+  // Inicialize o objeto de descrições de produtos
+  produtosJSON.produtos.forEach((produto) => {
+    productDescriptions[produto.nome] = produto.descricao;
   });
 
-  const product = {
-    nome: "",
-    categoria: "",
-    quantidade: 0,
-    preco: 0,
-  };
-
-  const handleFormSubmit = (values) => {
-    Axios.post("http://localhost:3001/addProduct", values)
-      .then((response) => {
-        if (response.data.userExists) {
-          // Usuário já existe, exiba uma mensagem de aviso
-        } else {
-          alert("Cadastro Concluído!");
-          // Usuário não existe, continue com o cadastro
-
-          console.log(response.data.msg);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  //--------------------------------------
-
-  const [showDescription, setShowDescription] = useState(false);
-
-  const productDescriptions = {
-    Whey: "O Whey Protein é um suplemento de proteína de alta qualidade, amplamente utilizado por atletas e entusiastas de fitness para promover o crescimento muscular, acelerar a recuperação e melhorar o desempenho físico. É derivado do soro do leite e é conhecido por sua rápida absorção e perfil completo de aminoácidos, tornando-o uma escolha popular para quem busca resultados eficazes na musculação e na atividade física.",
-    Omega:
-      "O Omega-3 é um tipo de ácido graxo essencial que oferece vários benefícios para a saúde. Ele é amplamente conhecido por seu papel na promoção da saúde cardiovascular, reduzindo a inflamação e melhorando a função cerebral. O Omega-3 é frequentemente encontrado em peixes gordos, como salmão e atum, além de suplementos de óleo de peixe. Seu consumo está associado a uma série de vantagens, incluindo a redução do risco de doenças cardíacas, melhora da função cognitiva e apoio à saúde das articulações. Essa substância é essencial para o funcionamento adequado do corpo e pode ser obtida através da alimentação ou de suplementos nutricionais.",
-    Glutamina:
-      "A glutamina é um aminoácido essencial que promove a recuperação muscular, fortalece o sistema imunológico, auxilia na saúde digestiva e na cicatrização de feridas, sendo popular entre atletas e pessoas que buscam benefícios para a saúde.",
-    Creatina:
-      "A creatina é um composto natural que fornece energia rápida para os músculos, melhorando o desempenho em atividades físicas de curta duração e alta intensidade. É amplamente usada por atletas e fisiculturistas para aumentar a força e o ganho muscular.",
-    Cafeina:
-      "A cafeína é um estimulante natural encontrado em café, chá e outras bebidas. Ela aumenta o estado de alerta, reduz a fadiga e melhora o foco. Muitas pessoas a consomem para combater o sono e melhorar o desempenho mental e físico.",
-    BCAA: "BCAA, ou Aminoácidos de Cadeia Ramificada, é um suplemento popular entre atletas e fisiculturistas. É composto por três aminoácidos essenciais: leucina, isoleucina e valina. Os BCAAs são frequentemente tomados para promover o crescimento muscular, reduzir a fadiga e melhorar o desempenho durante o exercício. Eles também podem auxiliar na recuperação muscular após treinos intensos.",
-    Barra:
-      "A Barra com Whey Protein é um produto que combina a conveniência de uma barra de proteína com os benefícios do whey protein, uma fonte de proteína de alta qualidade. Essas barras são projetadas para fornecer uma opção rápida e prática de obter proteína em sua dieta. Elas são frequentemente consumidas por atletas, praticantes de atividades físicas e pessoas que desejam aumentar a ingestão de proteína em sua alimentação diária, ajudando na recuperação muscular e no suporte ao crescimento muscular.",
-    Alb: "Albumina é um suplemento riquíssimo em proteínas, geralmente derivado da clara do ovo. Amplamente usado por atletas e fisiculturistas, a albumina é conhecida por sua alta qualidade proteica e facilidade de digestão. Ela é frequentemente utilizada para auxiliar no ganho de massa muscular, recuperação pós-exercício e como uma fonte de proteína de alto valor biológico. Além disso, a albumina é uma opção econômica para suplementação protéica em comparação com outras fontes de proteína.",
-  };
+  console.log(productDescriptions);
 
   const handleImageClick = (productname) => {
     if (showDescription === productname) {
-      // Se a descrição já estiver aberta para o produto, feche-a
       setShowDescription(null);
     } else {
-      // Caso contrário, mostre a descrição do produto clicado
       setShowDescription(productname);
     }
   };
+
+  // Coloque o console.log aqui fora
+  console.log(showDescription);
 
   useEffect(() => {
     // Cart
@@ -192,15 +139,14 @@ const Logado = () => {
       }
 
       var cartBoxContent = `
-              <img src="${productImg}" alt="" class="cart-img" />
-              <div class="detail-box">
-                <div class="cart-product-title">${title}</div>
-                <div class="cart-price">${price}</div>
-                <input type="number" value="1" class="cart-quantity" />
-              </div>
-
-              <!-- Remove Cart -->
-              <i class="bx bxs-trash-alt cart-remove"></i>`;
+      <img src="${productImg}" alt="" class="cart-img" />
+      <div class="detail-box">
+        <div class="cart-product-title">${title}</div>
+        <div class="cart-price">${price}</div>
+        <input type="number" value="1" class="cart-quantity" />
+      </div>
+      <!-- Remove Cart -->
+      <i class="bx bxs-trash-alt cart-remove"></i>`;
 
       cartShopBox.innerHTML = cartBoxContent;
       cartItems.append(cartShopBox);
@@ -271,8 +217,8 @@ const Logado = () => {
                 <div className="total-title">Total</div>
                 <div className="total-price">R$0.00</div>
               </div>
-              <button type="button" className="btn-buy">
-                Compre Agora
+              <button type="button" name="button" className="btn-buy">
+                <span>Compre Agora</span>
               </button>
               <i className="bx bx-x" id="close-cart"></i>
             </div>
@@ -282,139 +228,24 @@ const Logado = () => {
         <section className="shop container">
           <h2 className="section-title">Produtos</h2>
           <div className="shop-content">
-            <div className="product-box">
-              <img
-                src={Whey}
-                alt=""
-                className="product-img"
-                onClick={() => handleImageClick("Whey")}
-              />
-              <h2 className="product-title">Whey Protein</h2>
-              <span className="price">R$ 98,99</span>
-              <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Whey" && (
-                <p className="product-description">
-                  {productDescriptions.Whey}
-                </p>
-              )}
-            </div>
-            <div className="product-box">
-              <img
-                src={Omega}
-                alt=""
-                className="product-img"
-                onClick={() => handleImageClick("Omega")}
-              />
-              <h2 className="product-title">Omega 3</h2>
-              <span className="price">R$ 60,00</span>
-              <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Omega" && (
-                <p className="product-description">
-                  {productDescriptions.Omega}
-                </p>
-              )}
-            </div>
-            {/* Box 4 */}
-            <div className="product-box">
-              <img
-                src={Glutamina}
-                alt=""
-                className="product-img"
-                onClick={() => handleImageClick("Glutamina")}
-              />
-              <h2 className="product-title">Glutamina</h2>
-              <span className="price">R$ 60,00</span>
-              <i className="bx bx-shopping-bag add-cart"></i>
-
-              {showDescription === "Glutamina" && (
-                <p className="product-description">
-                  {productDescriptions.Glutamina}
-                </p>
-              )}
-            </div>
-            {/* Box 5 */}
-            <div className="product-box">
-              <img
-                src={Creatina}
-                alt=""
-                className="product-img"
-                onClick={() => handleImageClick("Creatina")}
-              />
-              <h2 className="product-title">Creatina</h2>
-              <span className="price">R$ 79,90</span>
-              <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Creatina" && (
-                <p className="product-description">
-                  {productDescriptions.Creatina}
-                </p>
-              )}
-            </div>
-            {/* Box 6 */}
-            <div className="product-box">
-              <img
-                src={Cafeina}
-                alt=""
-                className="product-img"
-                onClick={() => handleImageClick("Cafeina")}
-              />
-              <h2 className="product-title">Cafeína</h2>
-              <span className="price">R$ 80,00</span>
-              <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Cafeina" && (
-                <p className="product-description">
-                  {productDescriptions.Cafeina}
-                </p>
-              )}
-            </div>
-            {/* Box 7 */}
-            <div className="product-box">
-              <img
-                src={BCAA}
-                alt=""
-                className="product-img"
-                onClick={() => handleImageClick("BCAA")}
-              />
-              <h2 className="product-title">BCAA</h2>
-              <span className="price">R$ 40,00</span>
-              <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "BCAA" && (
-                <p className="product-description">
-                  {productDescriptions.BCAA}
-                </p>
-              )}
-            </div>
-            {/* Box 8 */}
-            <div className="product-box">
-              <img
-                src={Barra}
-                alt=""
-                className="product-img"
-                onClick={() => handleImageClick("Barra")}
-              />
-              <h2 className="product-title">Barra com Whey Protein</h2>
-              <span className="price">R$ 98,99</span>
-              <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Barra" && (
-                <p className="product-description">
-                  {productDescriptions.Barra}
-                </p>
-              )}
-            </div>
-            {/* Box 9 */}
-            <div className="product-box">
-              <img
-                src={Alb}
-                alt=""
-                className="product-img"
-                onClick={() => handleImageClick("Alb")}
-              />
-              <h2 className="product-title">Albumina</h2>
-              <span className="price">R$ 65,00</span>
-              <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Alb" && (
-                <p className="product-description">{productDescriptions.Alb}</p>
-              )}
-            </div>
+            {produtosJSON.produtos.map((produto) => (
+              <div className="product-box" key={produto.nome}>
+                <img
+                  src={produto.imagem}
+                  alt=""
+                  className="product-img"
+                  onClick={() => handleImageClick(produto.nome)}
+                />
+                <h2 className="product-title">{produto.nome}</h2>
+                <span className="price">R$ {produto.preco.toFixed(2)}</span>
+                <i className="bx bx-shopping-bag add-cart"></i>
+                {showDescription === produto.nome && (
+                  <p className="product-description">
+                    {productDescriptions[produto.nome]}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
         </section>
       </div>
