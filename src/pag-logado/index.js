@@ -5,6 +5,13 @@ import produtosJSON from "./produtos.json";
 import { React, useEffect } from "../pag-logado/imports";
 
 const Logado = () => {
+  const handleDescriptionClick = (productname) => {
+    if (showDescription === productname) {
+      setShowDescription(null);
+    } else {
+      setShowDescription(productname);
+    }
+  };
   //Banco de Dados
 
   const [showDescription, setShowDescription] = useState(null);
@@ -16,8 +23,6 @@ const Logado = () => {
     productDescriptions[produto.nome] = produto.descricao;
   });
 
-  console.log(productDescriptions);
-
   const handleImageClick = (productname) => {
     if (showDescription === productname) {
       setShowDescription(null);
@@ -25,9 +30,6 @@ const Logado = () => {
       setShowDescription(productname);
     }
   };
-
-  // Coloque o console.log aqui fora
-  console.log(showDescription);
 
   useEffect(() => {
     // Cart
@@ -229,7 +231,7 @@ const Logado = () => {
           <h2 className="section-title">Produtos</h2>
           <div className="shop-content">
             {produtosJSON.produtos.map((produto) => (
-              <div className="product-box" key={produto.nome}>
+              <div className="product-box" key={produto.id}>
                 <img
                   src={produto.imagem}
                   alt=""
@@ -239,6 +241,10 @@ const Logado = () => {
                 <h2 className="product-title">{produto.nome}</h2>
                 <span className="price">R$ {produto.preco.toFixed(2)}</span>
                 <i className="bx bx-shopping-bag add-cart"></i>
+                <i
+                  className="bx bx-info-circle product-info"
+                  onClick={() => handleDescriptionClick(produto.nome)}
+                ></i>
                 {showDescription === produto.nome && (
                   <p className="product-description">
                     {productDescriptions[produto.nome]}

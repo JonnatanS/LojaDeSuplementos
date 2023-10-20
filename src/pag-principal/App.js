@@ -13,7 +13,7 @@ import {
   Omega,
   Whey,
   Creatina,
-} from "./imports.js";
+} from "./imports";
 
 const App = () => {
   const [showDescription, setShowDescription] = useState(false);

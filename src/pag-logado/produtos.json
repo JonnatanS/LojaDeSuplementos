@@ -6,8 +6,8 @@
       "categoria": "Proteína",
       "quantidade": 1,
       "preco": 98.99,
-      "imagem": "../Frontend/galeria/whey1.png",
-      "descricao": "O Whey Protein é um suplemento de proteína de alta qualidade..."
+      "imagem": "galeria/whey1.png",
+      "descricao": "O Whey Protein é um suplemento de proteína de alta qualidade, amplamente utilizado por atletas e entusiastas de fitness para promover o crescimento muscular, acelerar a recuperação e melhorar o desempenho físico. É derivado do soro do leite e é conhecido por sua rápida absorção e perfil completo de aminoácidos, tornando-o uma escolha popular para quem busca resultados eficazes na musculação e na atividade física."
     },
     {
       "id": 2,
@@ -15,8 +15,8 @@
       "categoria": "Proteína",
       "quantidade": 1,
       "preco": 65.0,
-      "imagem": "../Frontend/galeria/albumina1.png",
-      "descricao": "Albumina é um suplemento riquíssimo em proteínas, geralmente derivado da clara do ovo..."
+      "imagem": "galeria/albumina1.png",
+      "descricao": "Albumina é um suplemento riquíssimo em proteínas, geralmente derivado da clara do ovo. Amplamente usado por atletas e fisiculturistas, a albumina é conhecida por sua alta qualidade proteica e facilidade de digestão. Ela é frequentemente utilizada para auxiliar no ganho de massa muscular, recuperação pós-exercício e como uma fonte de proteína de alto valor biológico. Além disso, a albumina é uma opção econômica para suplementação protéica em comparação com outras fontes de proteína."
     },
     {
       "id": 3,
@@ -24,8 +24,8 @@
       "categoria": "Linha Clinical",
       "quantidade": 1,
       "preco": 60.0,
-      "imagem": "../Frontend/galeria/omega3.png",
-      "descricao": "O Omega-3 é um tipo de ácido graxo essencial que oferece vários benefícios..."
+      "imagem": "galeria/omega3.png",
+      "descricao": "O Omega-3 é um tipo de ácido graxo essencial que oferece vários benefícios para a saúde. Ele é amplamente conhecido por seu papel na promoção da saúde cardiovascular, reduzindo a inflamação e melhorando a função cerebral. O Omega-3 é frequentemente encontrado em peixes gordos, como salmão e atum, além de suplementos de óleo de peixe. Seu consumo está associado a uma série de vantagens, incluindo a redução do risco de doenças cardíacas, melhora da função cognitiva e apoio à saúde das articulações. Essa substância é essencial para o funcionamento adequado do corpo e pode ser obtida através da alimentação ou de suplementos nutricionais."
     },
     {
       "id": 4,
@@ -33,8 +33,8 @@
       "categoria": "Aminoácidos",
       "quantidade": 1,
       "preco": 40.0,
-      "imagem": "../Frontend/galeria/bcaa1.png",
-      "descricao": "BCAA, ou Aminoácidos de Cadeia Ramificada, é um suplemento popular entre atletas..."
+      "imagem": "galeria/bcaa1.png",
+      "descricao": "BCAA, ou Aminoácidos de Cadeia Ramificada, é um suplemento popular entre atletas e fisiculturistas. É composto por três aminoácidos essenciais: leucina, isoleucina e valina. Os BCAAs são frequentemente tomados para promover o crescimento muscular, reduzir a fadiga e melhorar o desempenho durante o exercício. Eles também podem auxiliar na recuperação muscular após treinos intensos."
     },
     {
       "id": 5,
@@ -42,8 +42,8 @@
       "categoria": "Termogênicos",
       "quantidade": 1,
       "preco": 80.0,
-      "imagem": "../Frontend/galeria/cafeina1.png",
-      "descricao": "A cafeína é um estimulante natural encontrado em café, chá e outras bebidas..."
+      "imagem": "galeria/cafeina1.png",
+      "descricao": "A cafeína é um estimulante natural encontrado em café, chá e outras bebidas. Ela aumenta o estado de alerta, reduz a fadiga e melhora o foco. Muitas pessoas a consomem para combater o sono e melhorar o desempenho mental e físico."
     },
     {
       "id": 6,
@@ -51,8 +51,8 @@
       "categoria": "Aminoácidos",
       "quantidade": 1,
       "preco": 60.0,
-      "imagem": "../Frontend/galeria/glutamina1.png",
-      "descricao": "A glutamina é um aminoácido essencial que promove a recuperação muscular..."
+      "imagem": "galeria/glutamina1.png",
+      "descricao": "A glutamina é um aminoácido essencial que promove a recuperação muscular, fortalece o sistema imunológico, auxilia na saúde digestiva e na cicatrização de feridas, sendo popular entre atletas e pessoas que buscam benefícios para a saúde."
     },
     {
       "id": 7,
@@ -60,17 +60,17 @@
       "categoria": "Suplemento",
       "quantidade": 1,
       "preco": 79.9,
-      "imagem": "../Frontend/galeria/creatina1.png",
-      "descricao": "A creatina é um composto natural que fornece energia rápida para os músculos..."
+      "imagem": "galeria/creatina1.png",
+      "descricao": "A creatina é um composto natural que fornece energia rápida para os músculos, melhorando o desempenho em atividades físicas de curta duração e alta intensidade. É amplamente usada por atletas e fisiculturistas para aumentar a força e o ganho muscular."
     },
     {
       "id": 8,
       "nome": "Barra com Whey Protein",
       "categoria": "Proteína",
       "quantidade": 1,
-      "preco": 98.99,
-      "imagem": "../Frontend/galeria/barraproteina1.png",
-      "descricao": "A Barra com Whey Protein é um produto que combina a conveniência de uma barra de proteína..."
+      "preco": 59.4,
+      "imagem": "galeria/barraproteina1.png",
+      "descricao": "A Barra com Whey Protein é um produto que combina a conveniência de uma barra de proteína com os benefícios do whey protein, uma fonte de proteína de alta qualidade. Essas barras são projetadas para fornecer uma opção rápida e prática de obter proteína em sua dieta. Elas são frequentemente consumidas por atletas, praticantes de atividades físicas e pessoas que desejam aumentar a ingestão de proteína em sua alimentação diária, ajudando na recuperação muscular e no suporte ao crescimento muscular."
     }
   ]
 }
