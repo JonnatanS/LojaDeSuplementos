@@ -2,6 +2,7 @@ import produtosJSON from "./produtos.json";
 import { Link, useParams } from "react-router-dom";
 import React from "../pag-logado/imports";
 
+//aba de detalhes
 const ProductDetail = () => {
   const { productId } = useParams();
 
