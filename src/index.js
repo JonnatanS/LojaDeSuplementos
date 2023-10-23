@@ -15,6 +15,9 @@ import HomePage from "./pag-principal/App";
 import Cadastro from "./Frontend/cadastro-js/cadastro";
 import Logado from "./pag-logado/index";
 
+import Paypal from "./components/paypal";
+import ProductDetail from "./pag-logado/ProductDetail";
+
 const root = createRoot(document.getElementById("root"));
 
 root.render(
@@ -30,6 +33,8 @@ root.render(
           <Route path="loginpage" element={<LoginPage />} />
           <Route path="cadastro" element={<Cadastro />} />
           <Route path="homepagelog" element={<Logado />} />
+          <Route path="pagamento" element={<Paypal />} />
+          <Route path="/detalhes/id/:productId" element={<ProductDetail />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>

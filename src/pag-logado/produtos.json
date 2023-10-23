@@ -6,7 +6,7 @@
       "categoria": "Proteína",
       "quantidade": 1,
       "preco": 98.99,
-      "imagem": "galeria/whey1.png",
+      "imagem": "galeria/whey2.png",
       "descricao": "O Whey Protein é um suplemento de proteína de alta qualidade, amplamente utilizado por atletas e entusiastas de fitness para promover o crescimento muscular, acelerar a recuperação e melhorar o desempenho físico. É derivado do soro do leite e é conhecido por sua rápida absorção e perfil completo de aminoácidos, tornando-o uma escolha popular para quem busca resultados eficazes na musculação e na atividade física."
     },
     {
@@ -33,7 +33,7 @@
       "categoria": "Aminoácidos",
       "quantidade": 1,
       "preco": 40.0,
-      "imagem": "galeria/bcaa1.png",
+      "imagem": "galeria/bcaa2.png",
       "descricao": "BCAA, ou Aminoácidos de Cadeia Ramificada, é um suplemento popular entre atletas e fisiculturistas. É composto por três aminoácidos essenciais: leucina, isoleucina e valina. Os BCAAs são frequentemente tomados para promover o crescimento muscular, reduzir a fadiga e melhorar o desempenho durante o exercício. Eles também podem auxiliar na recuperação muscular após treinos intensos."
     },
     {

@@ -214,8 +214,8 @@ div.App {
 
 .product-img {
   width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;
+  height: 70%;
+  margin-bottom: 1rem;
 }
 
 .product-title {
@@ -227,6 +227,7 @@ div.App {
 
 .price {
   font-weight: 500;
+  font-size: 1.1rem;
 }
 
 .add-cart {

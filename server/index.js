@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
+const axios = require("axios");
+const fs = require("fs");
 
 const db = mysql.createPool({
   host: "localhost",
@@ -15,6 +17,7 @@ app.use(express.json());
 
 //Login e Cadastro
 app.post("/register", (req, res) => {
+  console.log("Recebida uma solicitação POST para /register");
   const { nome, usuario, data_nasc, email, senha } = req.body;
 
   db.query("SELECT * FROM usuarios WHERE email = ?", [email], (err, result) => {
@@ -45,6 +48,7 @@ app.post("/login", (req, res) => {
 
   db.query(
     "SELECT * FROM usuarios WHERE email = ? AND senha = ?",
+
     [email, senha],
     (err, result) => {
       if (err) {
@@ -62,32 +66,48 @@ app.post("/login", (req, res) => {
 //------------------------------------------------------------------------------//
 
 //Produtos
+// Rota para adicionar os produtos ao banco de dados
 app.post("/addProduct", (req, res) => {
-  const { categoria, nome, quantidade, preco } = req.body;
+  const { carrinho } = req.body;
 
-  db.query(
-    "INSERT INTO produtos (categoria, nome, quantidade, preco) VALUES (?,?,?,?)",
-    [categoria, nome, quantidade, preco],
-    (err, result) => {
+  for (const produto of carrinho) {
+    const valor_total = produto.quantidade * produto.preco;
+
+    const sql =
+      "INSERT INTO produtos (nome, categoria, quantidade, preco, imagem, descricao, valor_total) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    const values = [
+      produto.nome,
+      produto.categoria,
+      produto.quantidade,
+      produto.preco,
+      produto.imagem,
+      produto.descricao,
+      valor_total,
+    ];
+
+    db.query(sql, values, (err, result) => {
       if (err) {
-        res.send(err);
+        console.error(err);
+        res.status(500).json({ error: err.message });
       } else {
-        res.send({ msg: "Produto adicionado com sucesso" });
+        // Produto adicionado com sucesso
       }
-    }
-  );
-});
+    });
+  }
 
+  res.json({ message: "Produtos adicionados com sucesso" });
+});
 app.get("/getProducts", (req, res) => {
   db.query("SELECT * FROM produtos", (err, result) => {
     if (err) {
-      res.send(err);
+      console.error(err);
+      res.status(500).json({ error: err.message });
     } else {
-      res.send(result);
+      res.json(result);
     }
   });
 });
 
 app.listen(3001, () => {
-  console.log("Rodando servidor");
+  console.log("Servidor rodando na porta 3001");
 });
