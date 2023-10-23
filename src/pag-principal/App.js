@@ -18,22 +18,6 @@ import {
 const App = () => {
   const [showDescription, setShowDescription] = useState(false);
 
-  const productDescriptions = {
-    Whey: "O Whey Protein é um suplemento de proteína de alta qualidade, amplamente utilizado por atletas e entusiastas de fitness para promover o crescimento muscular, acelerar a recuperação e melhorar o desempenho físico. É derivado do soro do leite e é conhecido por sua rápida absorção e perfil completo de aminoácidos, tornando-o uma escolha popular para quem busca resultados eficazes na musculação e na atividade física.",
-    Omega:
-      "O Omega-3 é um tipo de ácido graxo essencial que oferece vários benefícios para a saúde. Ele é amplamente conhecido por seu papel na promoção da saúde cardiovascular, reduzindo a inflamação e melhorando a função cerebral. O Omega-3 é frequentemente encontrado em peixes gordos, como salmão e atum, além de suplementos de óleo de peixe. Seu consumo está associado a uma série de vantagens, incluindo a redução do risco de doenças cardíacas, melhora da função cognitiva e apoio à saúde das articulações. Essa substância é essencial para o funcionamento adequado do corpo e pode ser obtida através da alimentação ou de suplementos nutricionais.",
-    Glutamina:
-      "A glutamina é um aminoácido essencial que promove a recuperação muscular, fortalece o sistema imunológico, auxilia na saúde digestiva e na cicatrização de feridas, sendo popular entre atletas e pessoas que buscam benefícios para a saúde.",
-    Creatina:
-      "A creatina é um composto natural que fornece energia rápida para os músculos, melhorando o desempenho em atividades físicas de curta duração e alta intensidade. É amplamente usada por atletas e fisiculturistas para aumentar a força e o ganho muscular.",
-    Cafeina:
-      "A cafeína é um estimulante natural encontrado em café, chá e outras bebidas. Ela aumenta o estado de alerta, reduz a fadiga e melhora o foco. Muitas pessoas a consomem para combater o sono e melhorar o desempenho mental e físico.",
-    BCAA: "BCAA, ou Aminoácidos de Cadeia Ramificada, é um suplemento popular entre atletas e fisiculturistas. É composto por três aminoácidos essenciais: leucina, isoleucina e valina. Os BCAAs são frequentemente tomados para promover o crescimento muscular, reduzir a fadiga e melhorar o desempenho durante o exercício. Eles também podem auxiliar na recuperação muscular após treinos intensos.",
-    Barra:
-      "A Barra com Whey Protein é um produto que combina a conveniência de uma barra de proteína com os benefícios do whey protein, uma fonte de proteína de alta qualidade. Essas barras são projetadas para fornecer uma opção rápida e prática de obter proteína em sua dieta. Elas são frequentemente consumidas por atletas, praticantes de atividades físicas e pessoas que desejam aumentar a ingestão de proteína em sua alimentação diária, ajudando na recuperação muscular e no suporte ao crescimento muscular.",
-    Alb: "Albumina é um suplemento riquíssimo em proteínas, geralmente derivado da clara do ovo. Amplamente usado por atletas e fisiculturistas, a albumina é conhecida por sua alta qualidade proteica e facilidade de digestão. Ela é frequentemente utilizada para auxiliar no ganho de massa muscular, recuperação pós-exercício e como uma fonte de proteína de alto valor biológico. Além disso, a albumina é uma opção econômica para suplementação protéica em comparação com outras fontes de proteína.",
-  };
-
   const handleImageClick = (productname) => {
     if (showDescription === productname) {
       // Se a descrição já estiver aberta para o produto, feche-a
@@ -175,6 +159,9 @@ const App = () => {
     // Update Total
     function updateTotal() {
       var cartContent = document.getElementsByClassName("cart-content")[0];
+      if (!cartContent) {
+        return; // Se o elemento não existir, saia da função
+      }
       var cartBoxes = cartContent.getElementsByClassName("cart-box");
       var total = 0;
       for (var i = 0; i < cartBoxes.length; i++) {
@@ -202,7 +189,7 @@ const App = () => {
     // Seu código JSX aqui...
     <html lang="en">
       <head>
-        <meta charset="UTF-8" />
+        <meta charet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Python Suplementos</title>
         <link rel="stylesheet" href="./css-home/style.css" />
@@ -245,7 +232,7 @@ const App = () => {
               </div>
 
               {/* Buy Button */}
-              <button type="button" className="btn-buy">
+              <button type="button" to="/loginpage" className="btn-buy">
                 Compre Agora
               </button>
 
@@ -254,7 +241,10 @@ const App = () => {
             </div>
           </div>
         </header>
-
+        <div className="duvidas">
+          Duvidas ou Feedback? Ligue: 11 96809-6581 ou Email -
+          jonnatansouza65@gmail.com
+        </div>
         {/* Shop */}
         <section className="shop container">
           <h2 className="section-title">Produtos</h2>
@@ -271,11 +261,6 @@ const App = () => {
               <h2 className="product-title">Whey Protein</h2>
               <span className="price">R$ 98,99</span>
               <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Whey" && (
-                <p className="product-description">
-                  {productDescriptions.Whey}
-                </p>
-              )}
             </div>
             {/* Box 2 */}
             {/* <div className="product-box">
@@ -295,11 +280,6 @@ const App = () => {
               <h2 className="product-title">Omega 3</h2>
               <span className="price">R$ 60,00</span>
               <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Omega" && (
-                <p className="product-description">
-                  {productDescriptions.Omega}
-                </p>
-              )}
             </div>
             {/* Box 4 */}
             <div className="product-box">
@@ -312,12 +292,6 @@ const App = () => {
               <h2 className="product-title">Glutamina</h2>
               <span className="price">R$ 60,00</span>
               <i className="bx bx-shopping-bag add-cart"></i>
-
-              {showDescription === "Glutamina" && (
-                <p className="product-description">
-                  {productDescriptions.Glutamina}
-                </p>
-              )}
             </div>
             {/* Box 5 */}
             <div className="product-box">
@@ -330,11 +304,6 @@ const App = () => {
               <h2 className="product-title">Creatina</h2>
               <span className="price">R$ 79,90</span>
               <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Creatina" && (
-                <p className="product-description">
-                  {productDescriptions.Creatina}
-                </p>
-              )}
             </div>
             {/* Box 6 */}
             <div className="product-box">
@@ -347,11 +316,6 @@ const App = () => {
               <h2 className="product-title">Cafeína</h2>
               <span className="price">R$ 80,00</span>
               <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Cafeina" && (
-                <p className="product-description">
-                  {productDescriptions.Cafeina}
-                </p>
-              )}
             </div>
             {/* Box 7 */}
             <div className="product-box">
@@ -364,11 +328,6 @@ const App = () => {
               <h2 className="product-title">BCAA</h2>
               <span className="price">R$ 40,00</span>
               <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "BCAA" && (
-                <p className="product-description">
-                  {productDescriptions.BCAA}
-                </p>
-              )}
             </div>
             {/* Box 8 */}
             <div className="product-box">
@@ -381,11 +340,6 @@ const App = () => {
               <h2 className="product-title">Barra com Whey Protein</h2>
               <span className="price">R$ 98,99</span>
               <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Barra" && (
-                <p className="product-description">
-                  {productDescriptions.Barra}
-                </p>
-              )}
             </div>
             {/* Box 9 */}
             <div className="product-box">
@@ -398,9 +352,6 @@ const App = () => {
               <h2 className="product-title">Albumina</h2>
               <span className="price">R$ 65,00</span>
               <i className="bx bx-shopping-bag add-cart"></i>
-              {showDescription === "Alb" && (
-                <p className="product-description">{productDescriptions.Alb}</p>
-              )}
             </div>
           </div>
         </section>

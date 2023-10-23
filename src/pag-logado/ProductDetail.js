@@ -1,9 +1,9 @@
-import React from "react";
 import produtosJSON from "./produtos.json";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import React from "../pag-logado/imports";
 
 const ProductDetail = () => {
-  const { productId } = useParams(); // Use o hook useParams para obter o productId
+  const { productId } = useParams();
 
   const produto = produtosJSON.produtos.find(
     (p) => p.id === parseInt(productId)
@@ -14,11 +14,13 @@ const ProductDetail = () => {
   }
 
   return (
-    <div>
+    <div className="product-box">
       <h2>{produto.nome}</h2>
-      <img src={produto.imagem} className="product-img" alt={produto.nome} />
+
       <p>Preço: R$ {produto.preco.toFixed(2)}</p>
       <p>Descrição: {produto.descricao}</p>
+
+      <Link to="/homepagelog">Voltar</Link>
     </div>
   );
 };

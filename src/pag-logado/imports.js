@@ -12,6 +12,7 @@ import Omega from "../Frontend/css-home/galeria/omega3.png";
 import Vita from "../Frontend/css-home/galeria/vitamina-a-az.png";
 import Whey from "../Frontend/css-home/galeria/whey1.png";
 import Creatina from "../Frontend/css-home/galeria/creatina1.png";
+import ProductDetail from "./ProductDetail";
 
 import Logado from "../pag-logado/index";
 
@@ -29,4 +30,5 @@ export {
   Whey,
   Creatina,
   Logado,
+  ProductDetail,
 };

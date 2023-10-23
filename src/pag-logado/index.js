@@ -3,6 +3,7 @@ import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import produtosJSON from "./produtos.json";
+
 import { React, useEffect } from "../pag-logado/imports";
 
 const Logado = () => {
@@ -279,9 +280,16 @@ const Logado = () => {
             <a href="#/" className="logo">
               Python Suplementos
             </a>
+
+            <div className="duvidas">
+              Duvidas ou Feedback? Ligue: 11 96809-6581 ou Email -
+              jonnatansouza65@gmail.com
+            </div>
+
             <div className="log container">
+              Bem Vindo
               <a href="/" className="logo">
-                Bem Vindo
+                <br></br> Sair
               </a>
               <i className="bx bx-log-in"></i>
             </div>
@@ -323,6 +331,7 @@ const Logado = () => {
                   />
                   <h2 className="product-title">{produto.nome}</h2>
                 </Link>
+
                 <span className="price">R$ {produto.preco.toFixed(2)}</span>
                 <input
                   type="number"
